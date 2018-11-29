@@ -1,5 +1,5 @@
 #MATLAB = /usr/local/MATLAB/R2011b
-MATLAB = /Applications/MATLAB_R2017b.app
+MATLAB = /Applications/MATLAB_R2015b.app
 #OSTYPE = linux-gnu
 OSTYPE = maci64
 CC = gcc
@@ -18,8 +18,7 @@ SRCS = snake.c image.c pnpoly.c spline.c
 MAINSRC = $(PROGRAM).c
 HEADER = ./include.sh
 #LIBS = $(LOCAL_LIBS) $(SYS_LIBS) -L/home/etudiant/lib -I/home/etudiant/include
-# LIBS = $(LOCAL_LIBS) $(SYS_LIBS) -L/Users/cathy/local/lib -I/Users/cathy/local/include
-LIBS = $(LOCAL_LIBS) $(SYS_LIBS) -L/Users/jaegukang/local/lib -I/Users/jaegukang/local/include
+LIBS = $(LOCAL_LIBS) $(SYS_LIBS) -L/Users/cathy/local/lib -I/Users/cathy/local/include
 
 
 all: snake.h $(FUNCTION)
