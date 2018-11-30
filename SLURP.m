@@ -1372,6 +1372,7 @@ switch varargin{1},
         % defaults
         anchors = [];
         nPointsDef = 39;
+%         nPointsDef = 100;
         scaleDef = 98/321;
         vName = '';
         opt = struct('Sigma', 5.0, 'Delta', 2, 'BandPenalty', 2.0, ...
