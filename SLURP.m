@@ -1302,7 +1302,9 @@ switch varargin{1},
             close(gcbf);
             state = get(main_fig,'userData');            
             XYnew = zeros(Npoints, 2, state.NFRAME);
-            for f = 1:state.NFRAME
+%             for f = 1:state.NFRAME
+            fprintf('NFRAME is adjusted to %d for interpolation\n', state.NFRAME-1); % jaekoo 2018-11-30
+            for f = 1:state.NFRAME-1 % up to 40 frames (not 41 frames), jaekoo 2018-11-30
                 state.CURFRAME = f;
                 arclength = [0; cumsum(sqrt(sum(diff(state.XY(:,:,state.CURFRAME)).^2,2)))];
                 inc = arclength(end)/(Npoints-1);
