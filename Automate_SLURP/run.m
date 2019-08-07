@@ -3,7 +3,7 @@
 %
 % This script helps automate tongue contour tracking procedure in SLURP
 % without GUI interface. Especially, if you have a seed frame, this script
-% will make SLURP generate automatic contour tracking for the subsequent
+% will let SLURP generate automatic contour tracking for the subsequent
 % frames and easily save the contours as GetContour compatible format.
 %
 % **Note
@@ -15,15 +15,14 @@ close all;clear;clc
 
 %% Settings
 % Path
-slurp_dir = '/Users/jaegukang/GoogleDrive/GitHub/SLURP';
+slurp_dir = '/Users/jaegukang/GoogleDrive/GitHub/SLURP'; % SLURP main directory
 addpath(slurp_dir);
 output_dir = './output';
-seed_out_dir = './seed';
+seed_out_dir = './slurp_seed';
 interp_points = 100;
 
 % Load video files
-video_dir = '/Volumes/Transcend/_DataArchive/ICPhS2019_AdultData_Russian_Ultrasound_from_Boram'; % adults
-% video_dir = '/Volumes/Transcend/_DataArchive/ICPhS2019_KidData_Ghada_Child_AutoContoursAVI_Nov2018'; % kids
+video_dir = './video_files';
 dt = dir(video_dir);
 dtnames = {dt.name};
 idx = ~cellfun(@isempty, regexp(dtnames, '.avi'));
@@ -31,8 +30,7 @@ dtnames = dtnames(idx);
 if isempty(dtnames); error('no avi files found'); end
 
 %% Load seed frames
-seed_dir = '/Users/jaegukang/GoogleDrive/_Project/_2018-10_-_Ultrasound_Compare_Metrics/Boram/every_fifth_frame_manual';
-% seed_dir = '/Users/jaegukang/GoogleDrive/_Project/_2018-10_-_Ultrasound_Compare_Metrics/Rion/every_fifth_frame_manual_kid';
+seed_dir = './boram_seed';
 for i = 1:length(dtnames)
     seed_file = fullfile(seed_dir, regexprep(dtnames{i}, '.avi', '.mat'));
     % Make seed files under 'seed' folder
